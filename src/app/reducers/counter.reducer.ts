@@ -4,11 +4,13 @@ import * as actions from '../actions/counter-actions';
 // export interface for Typescript
 export interface CounterState {
   current: number;
+  by: number;
 }
 
 // initial state
 const initialState: CounterState = {
-  current: 0
+  current: 0,
+  by: 1
 };
 
 // reducer function.  note actions are actually interfaces.
@@ -17,10 +19,10 @@ const initialState: CounterState = {
 // don't make API calls or anything complex here.  this is for simple stuff.
 const myReducer = createReducer(
   initialState,
-  on(actions.countIncremented, (currentState) => ({ current: currentState.current + 1 })),
-  on(actions.countDecremented, (currentState) => ({ current: currentState.current - 1 })),
+  on(actions.countIncremented, (currentState) => ({ ...currentState, current: currentState.current + currentState.by })),
+  on(actions.countDecremented, (currentState) => ({ ...currentState, current: currentState.current - currentState.by })),
+  on(actions.countBySet, (currentState, action) => ({ ...currentState, by: action.by })),
   on(actions.countReset, () => initialState)
-
 );
 
 export function reducer(state: CounterState = initialState, action: Action): CounterState {

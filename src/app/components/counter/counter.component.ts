@@ -41,4 +41,7 @@ export class CounterComponent implements OnInit {
     this.store.dispatch(actions.countReset());
   }
 
+  setCountBy(by: number) {
+    this.store.dispatch(actions.countBySet({ by }));
+  }
 }
