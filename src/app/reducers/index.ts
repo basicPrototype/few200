@@ -15,3 +15,10 @@ export const selectGetCurrent = createSelector(
   selectCounterBranch,
   b => b.current
 );
+
+export const selectResetDisabled = createSelector(
+  // any number of selector functions; last one must return data
+  // re-using the above selector
+  selectGetCurrent,
+  c => c === 0
+);

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppState, selectGetCurrent } from 'src/app/reducers';
+import { AppState, selectGetCurrent, selectResetDisabled } from 'src/app/reducers';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as actions from '../../actions/counter-actions';
@@ -13,12 +13,17 @@ export class CounterComponent implements OnInit {
 
   // current = 0;
   current$: Observable<number>;
+  resetDisabled$: Observable<boolean>;
   constructor(private store: Store<AppState>) { } // dependency injection
 
   ngOnInit(): void {
     // move out into a selector function with the reducers
     this.current$ = this.store.pipe(
       select(selectGetCurrent)
+    );
+
+    this.resetDisabled$ = this.store.pipe(
+      select(selectResetDisabled)
     );
   }
 
