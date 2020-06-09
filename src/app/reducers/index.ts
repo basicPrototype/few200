@@ -22,3 +22,9 @@ export const selectResetDisabled = createSelector(
   selectGetCurrent,
   c => c === 0
 );
+
+
+export const selectCountingBy = createSelector(
+  selectCounterBranch,
+  b => b.by
+);
