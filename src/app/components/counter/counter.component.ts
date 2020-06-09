@@ -27,4 +27,8 @@ export class CounterComponent implements OnInit {
     this.store.dispatch({ type: 'decrement' });
   }
 
+  reset() {
+    this.store.dispatch({ type: 'reset' });
+  }
+
 }

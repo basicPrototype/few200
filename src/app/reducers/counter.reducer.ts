@@ -29,6 +29,14 @@ export function reducer(state: CounterState = initialState, action: Action): Cou
         current: state.current - 1
       };
     }
+    case 'reset': {
+      return {
+        // this works too
+        // current: 0
+        // can this just return initialState above?
+        current: initialState.current
+      };
+    }
     default: {
       return state;
     }
