@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppState } from 'src/app/reducers';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import * as actions from '../../actions/counter-actions';
 
 @Component({
   selector: 'app-counter',
@@ -20,15 +21,16 @@ export class CounterComponent implements OnInit {
 
   increment() {
     // this.current += 1;
-    this.store.dispatch({ type: 'increment' });
+    // this.store.dispatch({ type: 'increment' });
+    this.store.dispatch(actions.countIncremented());
   }
 
   decrement() {
-    this.store.dispatch({ type: 'decrement' });
+    this.store.dispatch(actions.countDecremented());
   }
 
   reset() {
-    this.store.dispatch({ type: 'reset' });
+    this.store.dispatch(actions.countReset());
   }
 
 }
