@@ -20,7 +20,7 @@ export class CounterEffects {
       filter(by => by !== null), // => '1' | '3' | '5'
       map(by => parseInt(by, 10)), // => 1 | 3 | 5
       map(by => counterActions.countBySet({ by }))
-    ), { dispatch: true }
+    ), { dispatch: true } // dispatch: maybe  :)  (could have stopped on any above line)
   );
 
   saveCountBy$ = createEffect(() =>
