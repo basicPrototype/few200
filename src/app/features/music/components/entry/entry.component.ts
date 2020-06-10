@@ -34,9 +34,11 @@ export class EntryComponent implements OnInit {
     return this.songForm.get('album');
   }
 
-  submit() {
-    console.log(this.songForm.value); // Dispatch!
+  submit(focusMe: HTMLInputElement) {
+    // console.log(this.songForm.value); // Dispatch!
     this.store.dispatch(addSong(this.songForm.value));
+    this.songForm.reset();
+    focusMe.focus();
   }
 
 }
