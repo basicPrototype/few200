@@ -3,6 +3,11 @@ import { SongEntity } from '../reducers/songs.reducer';
 
 let id = 0;
 
+export const loadSongsSucceeded = createAction(
+  '[music songs] loading songs succeeded',
+  props<{ payload: SongEntity[] }>()
+);
+
 export const setSongOrder = createAction(
   '[music songs] song sort order set',
   props<{ by: string }>()
@@ -18,4 +23,9 @@ export const addSong = createAction(
       album
     } as SongEntity
   })
+);
+
+export const addSongSucceeded = createAction(
+  '[music songs] add song succeeded',
+  props<{ oldId: string, payload: SongEntity }>()
 );

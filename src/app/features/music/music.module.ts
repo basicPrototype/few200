@@ -7,6 +7,9 @@ import { StoreModule } from '@ngrx/store';
 import { featureName, reducers } from './reducers';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SorterComponent } from './components/sorter/sorter.component';
+import { HttpClientModule } from '@angular/common/http';
+import { EffectsModule } from '@ngrx/effects';
+import { SongEffects } from './effects/song.effects';
 
 
 
@@ -15,7 +18,9 @@ import { SorterComponent } from './components/sorter/sorter.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    StoreModule.forFeature(featureName, reducers)
+    HttpClientModule,
+    StoreModule.forFeature(featureName, reducers),
+    EffectsModule.forFeature([SongEffects])
   ],
   exports: [MusicComponent]
 })
