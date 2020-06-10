@@ -1,5 +1,6 @@
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
-import { createReducer, Action } from '@ngrx/store';
+import { createReducer, Action, on } from '@ngrx/store';
+import * as actions from '../actions/songs.actions';
 
 // yes, we're duplicating the model elements on purpose.  don't reuse your model here.
 export interface SongEntity {
@@ -35,7 +36,8 @@ const initialState: SongState = {
 };
 
 const reducerFunction = createReducer(
-  initialState
+  initialState,
+  on(actions.addSong, (s, a) => adapter.addOne(a.payload, s))
 );
 
 export function reducer(state: SongState = initialState, action: Action) {
