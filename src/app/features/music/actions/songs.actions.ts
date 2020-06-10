@@ -1,8 +1,12 @@
-import { createAction } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 import { SongEntity } from '../reducers/songs.reducer';
 
 let id = 0;
 
+export const setSongOrder = createAction(
+  '[music songs] song sort order set',
+  props<{ by: string }>()
+);
 
 export const addSong = createAction(
   '[music songs] add song',
