@@ -3,4 +3,5 @@ export interface SongListItem {
   title: string;
   artist: string;
   album: string;
+  isSaved: boolean;
 }
