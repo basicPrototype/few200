@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { BookListItem } from '../../models/book.model';
+import { Component, OnInit, Input } from '@angular/core';
+import { BookListItem } from '../../models';
 
 @Component({
   selector: 'app-list',
@@ -8,10 +8,7 @@ import { BookListItem } from '../../models/book.model';
 })
 export class ListComponent implements OnInit {
 
-  books: BookListItem[] = [
-    { id: '1', title: 'It', author: 'Stephen King', format: 'eBook' },
-    { id: '2', title: 'Lonesome Dove', author: 'Larry McMurtry', format: 'Hardcover' }
-  ];
+  @Input() books: BookListItem[] = [];
 
   constructor() { }
 

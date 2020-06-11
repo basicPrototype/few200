@@ -15,7 +15,24 @@ export interface BookState extends EntityState<BookEntity> {
 
 export const adapter = createEntityAdapter<BookEntity>();
 
-const initialState = adapter.getInitialState();
+// const initialState = adapter.getInitialState();
+const initialState: BookState = {
+    ids: ['1', '2'],
+    entities: {
+        1: {
+            id: '1',
+            title: 'It',
+            author: 'Stephen King',
+            format: 'ebook'
+        },
+        2: {
+            id: '2',
+            title: 'Lonesome Dove',
+            author: 'Larry McMurtry',
+            format: 'hardcover'
+        }
+    }
+};
 
 const reducerFunction = createReducer(
     initialState
