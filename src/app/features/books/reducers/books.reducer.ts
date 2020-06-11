@@ -1,6 +1,7 @@
 // used ngrxr snippet
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
-import { createReducer, Action } from '@ngrx/store';
+import { createReducer, Action, on } from '@ngrx/store';
+import * as actions from '../actions/books.actions';
 
 export interface BookEntity {
     id: string;
@@ -35,7 +36,8 @@ const initialState: BookState = {
 };
 
 const reducerFunction = createReducer(
-    initialState
+    initialState,
+    on(actions.addBook, (s, a) => adapter.addOne(a.payload, s))
 );
 
 export function reducer(state: BookState = initialState, action: Action) {
