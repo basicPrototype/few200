@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BooksComponent } from './books.component';
-import { EntryComponent } from './entry/entry.component';
-import { ListComponent } from './list/list.component';
+import { EntryComponent } from './components/entry/entry.component';
+import { ListComponent } from './components/list/list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { featureName, reducers } from './reducers';
