@@ -22,7 +22,7 @@ export class EntryComponent implements OnInit {
   }
 
   submit() {
-    console.log('user clicked, hurrah');
+    console.log(this.bookForm.value);
   }
 
 }
